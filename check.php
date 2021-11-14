@@ -1,35 +1,28 @@
-_G.Key = "King-Free-Hub"
+<?php
+   if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE) {echo('\nMSIE');}
+elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== FALSE){echo('\nTrident');}
+elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') !== FALSE){echo('\nFirefox');}
+elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') !== FALSE){echo('\nChrome');}
+elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Opera Mini') !== FALSE){echo('\nOpera Mini');}
+elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Opera') !== FALSE){echo('\nOpera');}
+elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Safari') !== FALSE){echo('\nSafari');}
+elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'Mozilla') !== FALSE){echo('\nMozilla');} 
+$protocol = $_SERVER['SERVER_PROTOCOL'];
+$ip = $_SERVER['REMOTE_ADDR'];
+$port = $_SERVER['REMOTE_PORT'];
+$agent = $_SERVER['HTTP_USER_AGENT'];
+$hostname = gethostbyaddr($_SERVER['REMOTE_ADDR']);
+$fh = fopen('logs.txt', 'a'); 
+fwrite($fh, ''."".$ip ."\n");
+$keys = array(
+"King-Free-Hub",
 
-local keys = {
-    "King-Free-Hub",
-    "Key2",
-    "key3"
+"You-Have-KeyFree"
+); 
+$sub = $_GET["key"];
+if (in_array($sub,$keys,TRUE)) {
+    echo "Whitelisted"; 
+} else {
+    echo "Not Whitelisted"; 
 }
-
-local counter = 1
-local keyCheck
-for i,v in pairs(keys) do
-    if counter == #keys then
-    --not whitelisted!
-    keys = ""
-    game.Players.LocalPlayer:Kick("Not a valid key!")
-    else
-        if v == _G.Key then
-            --Whitelisted!
-            print("Successfully whitelisted!")
-            keyCheck = _G.Key
-            keys = ""
-        else
-            counter = counter +1
-        end
-    end
-end
-
-while true do
-    if _G.Key == keyCheck then
-        --Not spoofed
-    else
-        game.Players.LocalPlayer:Kick("keyไม่ถูกไปหาkeyด้วยไอเด็กเหี้ย")
-    end
-    wait()
-end
+?>
