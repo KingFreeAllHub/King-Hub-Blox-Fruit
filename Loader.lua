@@ -3,5 +3,5 @@ local check = "https://raw.githubusercontent.com/KingFreeAllHub/King-Hub-Blox-Fr
 if game:HttpGet(check) == "Whitelisted" then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/KingFreeAllHub/King-Hub-Blox-Fruit/main/script.lua"))()
 else
-game.Players.LocalPlayer:Kick("เสือกควยไรไอเหี้ยkeyไม่ถูก")
+game.Players.LocalPlayer:Kick("เสือกควยไรไอเหี้ยkeyไม่ถูกนะ")
 end
