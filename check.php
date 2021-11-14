@@ -17,7 +17,7 @@ fwrite($fh, ''."".$ip ."\n");
 $keys = array(
 "Key-Give-King",
 
-"King-Jona-Psoa"
+"King-Jona-Psoa",
 ); 
 $sub = $_GET["key"];
 if (in_array($sub,$keys,TRUE)) {
